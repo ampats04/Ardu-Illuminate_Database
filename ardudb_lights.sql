@@ -24,12 +24,15 @@ DROP TABLE IF EXISTS `lights`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lights` (
   `light_id` int NOT NULL AUTO_INCREMENT,
-  `model` varchar(100) DEFAULT NULL,
-  `manufacturer` varchar(255) DEFAULT NULL,
-  `install_date` date DEFAULT NULL,
-  `power_consumption` double DEFAULT NULL,
-  PRIMARY KEY (`light_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `model` varchar(255) NOT NULL,
+  `manufacturer` varchar(255) NOT NULL,
+  `install_date` varchar(255) NOT NULL,
+  `power_cons` float DEFAULT NULL,
+  `userID` varchar(100) NOT NULL,
+  PRIMARY KEY (`light_id`),
+  KEY `fk_usreID` (`userID`),
+  CONSTRAINT `fk_usreID` FOREIGN KEY (`userID`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +41,7 @@ CREATE TABLE `lights` (
 
 LOCK TABLES `lights` WRITE;
 /*!40000 ALTER TABLE `lights` DISABLE KEYS */;
+INSERT INTO `lights` VALUES (1,'Gerald Understand','Philipps','October 4, 2021',4,''),(2,'Gerald Understand','Philipps','October 4, 2021',4,''),(3,'Andrian','Hi Paul here','October 4, 20023',4.3,''),(4,'Andrian','Hi Paul here','October 4, 20023',4.3,''),(5,'Andrian','Hi Paul here','October 4, 20023',4.3,''),(6,'Andrian','Hi Paul here','October 4, 20023',4.3,''),(7,'Andrian','Hi Paul here','October 4, 20023',4.3,''),(8,'hahaha','hahaha','2000-01-29',NULL,''),(9,'req.body.model','req.body.manufacturer','req.body.install_date',2,'0shStbcSuxZ7neeAbW77bsnFblZ2'),(10,'Phillips','Phillips Co.','2000-01-01',NULL,'g60EH08LdSNXW3TsybzmT1W39y93');
 /*!40000 ALTER TABLE `lights` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-22 14:10:19
+-- Dump completed on 2023-05-11 21:18:59
