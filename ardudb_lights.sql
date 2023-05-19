@@ -27,7 +27,7 @@ CREATE TABLE `lights` (
   `model` varchar(255) NOT NULL,
   `manufacturer` varchar(255) NOT NULL,
   `install_date` varchar(255) NOT NULL,
-  `power_cons` float DEFAULT NULL,
+  `watt` float DEFAULT NULL,
   `userID` varchar(100) NOT NULL,
   PRIMARY KEY (`light_id`),
   KEY `fk_usreID` (`userID`),
